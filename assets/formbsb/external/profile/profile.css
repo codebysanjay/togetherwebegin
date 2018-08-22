@@ -1,0 +1,13 @@
+.detailcard {
+    display: flex;
+    align-items: center;
+    padding:15px;
+    margin-bottom:20px;
+    background-color:#fff;
+    box-shadow: 0 2px 50px 0 rgba(0,0,0,.26);
+    font-family:"Roboto","Arial", Sans-serif;
+}
+
+.school {
+    font-size: 100px;
+}
