@@ -27,7 +27,12 @@ class Main extends CI_Controller {
 
 	// --------------------------------------------------------------------------------------
 
-	public function signup() {	
+	public function signup() {
+                if (!is_null($this->session->userdata('user_id'))) {
+                    redirect('home', 'location');
+                    echo "logged in";
+                    return;
+                }
 		// echo $this->session->userdata('user_id');
 		// return;
 		// if no input
@@ -99,6 +104,11 @@ class Main extends CI_Controller {
 
 	public function login()
 	{	
+                if (!is_null($this->session->userdata('user_id'))) {
+                    redirect('home', 'location');
+                    echo "logged in";
+                    return;
+                }
 		// if no input
 		if (empty($_POST)) {
 			$this->load->view('general/login');
@@ -193,6 +203,12 @@ class Main extends CI_Controller {
 		$this->load->view('general/request_service', $data);
 		return;
 	}
+        
+        public function contact()
+	{
+		$this->load->view('general/contact');
+		return;
+	}
 
 	public function request_service()
 	{
@@ -244,7 +260,8 @@ class Main extends CI_Controller {
 		$dat['created_on'] = date("Y-m-d");
 		$dat['updated_on'] = date("Y-m-d");
 		$dat['service_count'] = 0;
-
+                
+                $data['name'] = $_POST['fname'].' '.$_POST['lname'];
 		$data['company'] = $_POST['company'];
 		$data['remark'] = $_POST['remarks'];
 		$data['phone'] = $_POST['mobnum'];
