@@ -57,6 +57,7 @@ $route['register'] = 'main/signup';
 $route['signup'] = 'main/signup';
 $route['login'] = 'main/login';
 $route['signin'] = 'main/login';
+$route['logout'] = 'main/logout';
 
 $route['verify'] = 'main/verify';
 $route['forgot-password'] = 'main/forgot_password';
