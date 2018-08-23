@@ -204,6 +204,12 @@ class Main extends CI_Controller {
 		return;
 	}
         
+        public function logout()
+	{
+            $this->session->unset_userdata('user_id');
+            redirect('login');
+	}
+        
         public function contact()
 	{
 		$this->load->view('general/contact');
