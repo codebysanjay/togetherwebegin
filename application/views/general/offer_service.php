@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Form Wizard | Bootstrap Based Admin Template - Material Design</title>
-    <!-- Favicon-->
-    <link rel="icon" href="http://localhost/placement/assets/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Rebuild Kerala" />
+    <meta name="author" content="Sreenath B S" />
+    <title>Offer a Service | Together We Begin!</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/home/ico/favicon.png" />
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -68,7 +76,7 @@
         <div class="row nomargin">
           <div class="span4">
             <div class="logo">
-                <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span>
+                <a href="<?php echo base_url(); ?>home"><img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span></a>
                 <nav class="navbar navbar-inverse">
                   <div class="container-fluid">
                     <div class="navbar-header">
@@ -77,7 +85,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span>
+                      <a href="<?php echo base_url(); ?>home"><img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                       <ul class="nav navbar-nav navbar-right">
@@ -85,7 +93,13 @@
                         <li class="active"><a href="services">Services</a></li>
                         <li><a href="contact">Contact Us</a></li>
                         <li><a href="statistics">Statistics</a></li>
-                        <li><a href="login">Login</a></li>
+                        <li><?php 
+                      if (is_null($this->session->userdata('user_id'))) { 
+                        echo '<a href="'.base_url().'login">Login</a>';
+                      } else {
+                        echo '<a href="'.base_url().'logout">Logout</a>';
+                      }
+                      ?></li>
                       </ul>
                     </div>
                   </div>
@@ -935,7 +949,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-group form-float">
                                                 <div class="input-field form-line">
-                                                    <select name="district" class="form-control show-tick" required="true">
+                                                    <select name="owndistrict" class="form-control show-tick" required="true">
                                                         <option selected disabled>District</option>
                                                         <option>Thiruvananthapuram</option>
                                                         <option>Kollam</option>
@@ -1002,8 +1016,8 @@
                                                 <div class="input-field form-line">
                                                     <select class="taluk form-control show-tick" multiple data-live-search="true" data-selected-text-format="count" data-actions-box="true" name="taluk[]">
                                                         <option selected disabled>Taluk/s of operation</option>
-                                                        <!-- <optgroup class="thiruvananthapuram" label="Thiruvananthapuram">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Thiruvananthapuram</option>
+                                                        <optgroup class="thiruvananthapuram" label="Thiruvananthapuram">
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Thiruvananthapuram</option>
                                                             <option>Neyyattinkara</option>
                                                             <option>Kattakkada</option>
                                                             <option>Nedumangadu</option>
@@ -1012,7 +1026,7 @@
                                                             <option>Varkala</option>
                                                         </optgroup>
                                                         <optgroup class="kollam"label="Kollam">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Kollam</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Kollam</option>
                                                             <option>Kollam</option>
                                                             <option>Kunnathoor</option>
                                                             <option>Karunagappally</option>
@@ -1021,7 +1035,7 @@
                                                             <option>Pathanapuram</option>
                                                         </optgroup>
                                                         <optgroup class="pathanamthitta" label="Pathanamthitta">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Pathanamthitta</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Pathanamthitta</option>
                                                             <option>Adoor</option>
                                                             <option>Konni</option>
                                                             <option>Kozhencherry</option>
@@ -1030,7 +1044,7 @@
                                                             <option>Thiruvalla</option>
                                                         </optgroup>
                                                         <optgroup class="alappuzha" label="Alappuzha">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Alappuzha</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Alappuzha</option>
                                                             <option>Chengannur</option>
                                                             <option>Mavelikkara</option>
                                                             <option>Karthikappally</option>
@@ -1039,7 +1053,7 @@
                                                             <option>Cherthala</option>
                                                         </optgroup>
                                                         <optgroup class="kottayam" label="Kottayam">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Kottayam</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Kottayam</option>
                                                             <option>Changanasserry</option>
                                                             <option>Kottayam</option>
                                                             <option>Vaikkom</option>
@@ -1047,7 +1061,7 @@
                                                             <option>Kanjirappally</option>
                                                         </optgroup>
                                                         <optgroup class="idukki" label="Idukki">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Idukki</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Idukki</option>
                                                             <option>Peerumedu</option>
                                                             <option>Udumbanchola</option>
                                                             <option>Idukki</option>
@@ -1055,7 +1069,7 @@
                                                             <option>Devikulam</option>
                                                         </optgroup>
                                                         <optgroup class="ernakulam" label="Ernakulam">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Ernakulam</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Ernakulam</option>
                                                             <option>Kothamangalam</option>
                                                             <option>Kunnathunad</option>
                                                             <option>Kanayannur</option>
@@ -1064,7 +1078,7 @@
                                                             <option>Aluva</option>
                                                         </optgroup>
                                                         <optgroup class="thrissur" label="Thrissur">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Thrissur</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Thrissur</option>
                                                             <option>Chalakudy</option>
                                                             <option>Mukundapuram</option>
                                                             <option>Kodungallur</option>
@@ -1074,7 +1088,7 @@
                                                             <option>Thalapilly</option>
                                                         </optgroup>
                                                         <optgroup class="palakkad" label="Palakkad">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Palakkad</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Palakkad</option>
                                                             <option>Alathoor</option>
                                                             <option>Chittur</option>
                                                             <option>Palakkad</option>
@@ -1083,50 +1097,43 @@
                                                             <option>Mannarkkadu</option>
                                                         </optgroup>
                                                         <optgroup class="malappuram" label="Malappuram">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Malappuram</option>
-                                                            <option>Alathoor</option>
-                                                            <option>Chittur</option>
-                                                            <option>Palakkad</option>
-                                                            <option>Pattambi</option>
-                                                            <option>Ottappalam</option>
-                                                            <option>Mannarkkadu</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Malappuram</option>
+                                                            <option>Perinthalmanna</option>
+                                                            <option>Nilambur</option>
+                                                            <option>Eranad</option>
+                                                            <option>Kondotty</option>
+                                                            <option>Ponnani</option>
+                                                            <option>Tirur</option>
+                                                            <option>Thiroorangadi</option>
                                                         </optgroup>
                                                         <optgroup class="kozhikkode<" label="Kozhikkode<">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Kozhikkode</option>
-                                                            <option>Alathoor</option>
-                                                            <option>Chittur</option>
-                                                            <option>Palakkad</option>
-                                                            <option>Pattambi</option>
-                                                            <option>Ottappalam</option>
-                                                            <option>Mannarkkadu</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Kozhikkode</option>
+                                                            <option>Kozhikode</option>
+                                                            <option>Thamarassery</option>
+                                                            <option>Koyilandy</option>
+                                                            <option>Vatakara</option>
                                                         </optgroup>
                                                         <optgroup class="wayanad" label="Wayanad">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Wayanad</option>
-                                                            <option>Alathoor</option>
-                                                            <option>Chittur</option>
-                                                            <option>Palakkad</option>
-                                                            <option>Pattambi</option>
-                                                            <option>Ottappalam</option>
-                                                            <option>Mannarkkadu</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Wayanad</option>
+                                                            <option>Vythiri</option>
+                                                            <option>Sulthan Bathery</option>
+                                                            <option>Mananthavady</option>
                                                         </optgroup>
                                                         <optgroup class="kannur" label="Kannur">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Kannur</option>
-                                                            <option>Alathoor</option>
-                                                            <option>Chittur</option>
-                                                            <option>Palakkad</option>
-                                                            <option>Pattambi</option>
-                                                            <option>Ottappalam</option>
-                                                            <option>Mannarkkadu</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Kannur</option>
+                                                            <option>Thalassery</option>
+                                                            <option>Iritty</option>
+                                                            <option>Kannur</option>
+                                                            <option>Payyannur</option>
+                                                            <option>Taliparamba</option>
                                                         </optgroup>
                                                         <optgroup class="kasargod" label="Kasargod">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Kasargod</option>
-                                                            <option>Alathoor</option>
-                                                            <option>Chittur</option>
-                                                            <option>Palakkad</option>
-                                                            <option>Pattambi</option>
-                                                            <option>Ottappalam</option>
-                                                            <option>Mannarkkadu</option>
-                                                        </optgroup> -->
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Kasargod</option>
+                                                            <option>Hosdurg</option>
+                                                            <option>Vellarikundu</option>
+                                                            <option>Kasaragod</option>
+                                                            <option>Manjeswaram</option>
+                                                        </optgroup>
                                                         
                                                         
                                                     </select>
@@ -1140,23 +1147,27 @@
                                             <div class="form-group form-float">
                                                 <div class="input-field form-line">
                                                     <select class="form-control show-tick" data-live-search="true" name="category">
-                                                        <option selected disabled>Category/ies of operation</option>
-                                                        <option>Thiruvananthapuram</option>
-                                                        <option>Kollam</option>
-                                                        <option>Pathanamthitta</option>
-                                                        <option>Alappuzha</option>
-                                                        <option>Kottayam</option>
+                                                        <option selected disabled>Category of operation</option>
+                                                        <option>Carpentry</option>
+                                                        <option>Civil</option>
+                                                        <option>Cleaning</option>
+                                                        <option>Electrical</option>
+                                                        <option>Electronics</option>
+                                                        <option>Mechanical</option>
+                                                        <option>Others</option>
+                                                        <option>Painting</option>
+                                                        <option>Transportation</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <!-- <div class="col-sm-6">
                                             <div class="form-group form-float">
                                                 <div class="input-field form-line">
                                                     <select class="form-control show-tick" multiple data-live-search="true" data-selected-text-format="count" data-actions-box="true" name="subcategory[]">
                                                         <option selected disabled>Select Sub-category/ies</option>
                                                         <optgroup label="Thiruvananthapuram">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Thiruvananthapuram</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Thiruvananthapuram</option>
                                                             <option>Neyyattinkara</option>
                                                             <option>Kattakkada</option>
                                                             <option>Nedumangadu</option>
@@ -1165,7 +1176,7 @@
                                                             <option>Varkala</option>
                                                         </optgroup>
                                                         <optgroup label="Kollam">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Kollam</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Kollam</option>
                                                             <option>Kollam</option>
                                                             <option>Kunnathoor</option>
                                                             <option>Karunagappally</option>
@@ -1174,7 +1185,7 @@
                                                             <option>Pathanapuram</option>
                                                         </optgroup>
                                                         <optgroup label="Pathanamthitta">
-                                                            <option style="background: #5cb85c; color: #fff;" data-subtext="(all taluks)">Pathanamthitta</option>
+                                                            <option disabled style="background: #5cb85c; color: #fff;">Pathanamthitta</option>
                                                             <option>Adoor</option>
                                                             <option>Konni</option>
                                                             <option>Kozhencherry</option>
@@ -1186,7 +1197,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="row">
@@ -1266,7 +1277,7 @@
             // function add_sp() {
             //     $.ajax({
             //         type: "POST",
-            //         url: "<?php echo base_url(); ?>add_sp",
+            //         url: "<?php //echo base_url(); ?>add_sp",
             //         data: $('.organization').serialize(),
             //         success: function(response)
             //         {
@@ -1281,7 +1292,7 @@
             //     add_sp(),
             //     $.ajax({
             //         type: "POST",
-            //         url: "<?php echo base_url(); ?>add_service",
+            //         url: "<?php //echo base_url(); ?>add_service",
             //         data: $('.service').serialize(),
             //         success: function(response)
             //         {
@@ -1308,16 +1319,40 @@
         //     }
         // });
 
+        var kerala = [];
+        kerala["Thiruvananthapuram"] = ["Neyyattinkara", "Kattakkada", "Nedumangadu", "Thiruvananthapuram", "Chirayinkeezhu", "Varkala"];
+        kerala["Kollam"] = ["Kollam", "Kunnathoor", "Karunagappally", "Kottarakkara", "Punalur", "Pathanapuram"];
+        kerala["Pathanamthitta"] = ["Adoor", "Konni", "Kozhencherry", "Ranni", "Mallappally", "Thiruvalla"];
+        kerala["Alappuzha"] = ["Chenganoor", "Mavelikkara", "Karthikappally", "Kuttanad", "Ambalappuzha", "Cherthala"];
+        kerala["Kottayam"] = ["Changanasserry", "Kottayam", "Vaikom", "Meenachil", "Kanjirappally"];
+        kerala["Idukki"] = ["Peermade", "Udumbanchola", "Idukki", "Thodupuzha", "Devikulam"];
+        kerala["Ernakulam"] = ["Kothamangalam", "Muvattupuzha", "Kunnathunad", "Kanayannur", "Kochi", "North Paravur", "Aluva"];
+        kerala["Thrissur"] = ["Chalakudy", "Mukundapuram", "Kodungallur", "Thrissur", "Chavakkad", "Kunnamkulam", "Thalapilly"];
+        kerala["Palakkad"] = ["Alathoor", "Chittur", "Palakkad", "Pattambi", "Ottappalam", "Mannarkkad"];
+        kerala["Malappuram"] = ["Perinthalmanna", "Nilambur", "Eranad", "Kondotty", "Ponnani", "Tirur", "Thiroorangadi"];
+        kerala["Kozhikode"] = ["Kozhikode", "Thamarassery", "Koyilandy", "Vatakara"];
+        kerala["Wayanad"] = ["Vythiri", "Sulthan Bathery", "Mananthavady"];
+        kerala["Kannur"] = ["Thalassery", "Iritty", "Kannur", "Taliparamba", "Payyannur"];
+        kerala["Kasaragod"] = ["Hosdurg", "Vellarikundu", "Kasaragod", "Manjeswaram"];
 
-        var selectedValues = [];    
-        $(".district :selected").each(function(){
-            selectedValues.push($(this).val()); 
-        });
-        console.log(selectedValues);
+        // $('.district').on('change', function() {
+        //     var selectedValues = [];    
+        //     $(".district :selected").each(function(){
+        //         selectedValues.push($(this).val()); 
+        //     });
+        //     // console.log(selectedValues);
 
-        for (var i=0; selectedValues[i]; i++) {
-            console.log(selectedValues[i]);
-        }
+        //     for (var i=1; selectedValues[i]; i++) {
+        //         for (var j=0; kerala[selectedValues[i]][j]; j++) {
+        //             console.log(kerala[selectedValues[i]][j]);
+
+        //             var newitemnum = i;
+        //             var newitemdes = kerala[selectedValues[i]][j];
+        //             $(".taluk").append('<option value="'+newitemnum+'">'+newitemdes+'</option>');
+        //         }
+        //         $(".taluk").selectpicker("refresh");
+        //     }
+        // });
 
     </script>
 

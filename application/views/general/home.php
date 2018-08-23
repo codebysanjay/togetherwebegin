@@ -36,7 +36,7 @@
         <div class="row nomargin">
           <div class="span4">
             <div class="logo">
-                <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span>
+                <a href="<?php echo base_url(); ?>home"><img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span></a>
             </div>
           </div>
           <div class="span8">
@@ -57,7 +57,13 @@
                       <a href="<?php echo base_url(); ?>statistics">Statistics</a>
                     </li>
                     <li>
-                      <a href="<?php echo base_url(); ?>login">Login</a>
+                      <?php 
+                      if (is_null($this->session->userdata('user_id'))) { 
+                        echo '<a href="'.base_url().'login">Login</a>';
+                      } else {
+                        echo '<a href="'.base_url().'logout">Logout</a>';
+                      }
+                      ?>
                     </li>
                   </ul>
                 </nav>

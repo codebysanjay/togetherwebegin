@@ -97,25 +97,25 @@ function add_sp() {
 	    data: $('.organization').serialize(),
 	    success: function(response)
 	    {
-	        alert("success in");
+	        // alert("success in");
 	    },
 	    error: function(){
-	        alert("failed in");
+	        // alert("failed in");
 	    },
 	});
 }
 function add_service() {
-	add_sp(),
+	// add_sp(),
 	$.ajax({
 	    type: "POST",
 	    url: "add_service",
-	    data: $('.service').serialize(),
+	    data: $('.service').serialize() + ' ' + $('.organization').serialize(),
 	    success: function(response)
 	    {
-	        alert("success in");
+	        // alert("success in");
 	    },
 	    error: function(){
-	        alert("failed in");
+	        // alert("failed in");
 	    },
 	});
 }

@@ -35,6 +35,11 @@
             <div class="body">
                 <form id="sign_in" method="POST">
                     <div class="msg">Sign in to start your session</div>
+                    <?php if($this->session->userdata('login')=="failed") {
+                        echo '<div class="alert alert-danger">
+                                email/ password mismatch <strong>:-(</srong>
+                            </div>';
+                    } ?>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
@@ -64,9 +69,9 @@
                         <div class="col-xs-6">
                             <a href="signup">Register Now!</a>
                         </div>
-                        <div class="col-xs-6 align-right">
+                        <!-- <div class="col-xs-6 align-right">
                             <a href="forgot-password">Forgot Password?</a>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>

@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Blank Page | Bootstrap Based Admin Template - Material Design</title>
+    <meta name="description" content="Rebuild Kerala" />
+    <meta name="author" content="Sreenath B S" />
+    <title>Services | Together We Begin!</title>
+
     <!-- Favicon-->
-    <link rel="icon" href="<?php echo base_url(); ?>assets/formbsb/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/home/ico/favicon.png" />
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -66,7 +74,7 @@
         <div class="row nomargin">
           <div class="span4">
             <div class="logo">
-                <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span>
+                <a href="<?php echo base_url(); ?>home"><img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span></a>
                 <nav class="navbar navbar-inverse">
                   <div class="container-fluid">
                     <div class="navbar-header">
@@ -75,7 +83,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span>
+                      <a href="<?php echo base_url(); ?>home"><img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                       <ul class="nav navbar-nav navbar-right">
@@ -83,7 +91,13 @@
                         <li class="active"><a href="services">Services</a></li>
                         <li><a href="contact">Contact Us</a></li>
                         <li><a href="statistics">Statistics</a></li>
-                        <li><a href="login">Login</a></li>
+                        <li><?php 
+                      if (is_null($this->session->userdata('user_id'))) { 
+                        echo '<a href="'.base_url().'login">Login</a>';
+                      } else {
+                        echo '<a href="'.base_url().'logout">Logout</a>';
+                      }
+                      ?></li>
                       </ul>
                     </div>
                   </div>
@@ -878,106 +892,153 @@
                   <ul style="text-align: initial;">
                     <li>
                       <input id='all' name='district' value='Thiruvananthapuram' type='radio'>
-                      <label for='all'>All</label>
+                      <label for='all'>Thiruvananthapuram</label>
                     </li>
                     <li>
-                      <input id='website' name='district' type='radio'>
-                      <label for='website'>Website</label>
+                      <input id='website' name='district' value='Kollam' type='radio'>
+                      <label for='website'>Kollam</label>
                     </li>
                     <li>
-                      <input id='icon' name='district' type='radio'>
-                      <label for='icon'>Icon</label>
+                      <input id='icon' name='district' value='Pathanamthitta' type='radio'>
+                      <label for='icon'>Pathanamthitta</label>
                     </li>
                     <li>
-                      <input id='mobile' name='district' type='radio'>
-                      <label for='mobile'>Mobile</label>
+                      <input id='mobile' name='district' value='Alappuzha' type='radio'>
+                      <label for='mobile'>Alappuzha</label>
                     </li>
                     <li>
-                      <input id='logo' name='district' type='radio'>
-                      <label for='logo'>Logo</label>
+                      <input id='logo' name='district' value='Kottayam' type='radio'>
+                      <label for='logo'>Kottayam</label>
                     </li>
                     <li>
-                      <input id='print' name='district' type='radio'>
-                      <label for='print'>Print</label>
+                      <input id='ui' name='district' value='Idukki' type='radio'>
+                      <label for='ui'>Idukki</label>
                     </li>
                     <li>
-                      <input id='ui' name='district' type='radio'>
-                      <label for='ui'>UI</label>
+                      <input id='illustration' name='district' value='Ernakulam' type='radio'>
+                      <label for='illustration'>Ernakulam</label>
                     </li>
                     <li>
-                      <input id='illustration' name='district' type='radio'>
-                      <label for='illustration'>Illustration</label>
+                      <input id='all' name='district' value='Thrissur' type='radio'>
+                      <label for='all'>Thrissur</label>
+                    </li>
+                    <li>
+                      <input id='website' name='district' value='Palakkad' type='radio'>
+                      <label for='website'>Palakkad</label>
+                    </li>
+                    <li>
+                      <input id='icon' name='district' value='Malappuram' type='radio'>
+                      <label for='icon'>Malappuram</label>
+                    </li>
+                    <li>
+                      <input id='mobile' name='district' value='Kozhikode' type='radio'>
+                      <label for='mobile'>Kozhikode</label>
+                    </li>
+                    <li>
+                      <input id='logo' name='district' value='Wayanad' type='radio'>
+                      <label for='logo'>Wayanad</label>
+                    </li>
+                    <li>
+                      <input id='ui' name='district' value='Kannur' type='radio'>
+                      <label for='ui'>Kannur</label>
+                    </li>
+                    <li>
+                      <input id='illustration' name='district' value='Kasargod' type='radio'>
+                      <label for='illustration'>Kasargod</label>
                     </li>
                   </ul>
                   <p class='title_items filter-btn'>Taluk</p>
                   <ul style="text-align: initial;">
-                    <li>
-                      <input id='ny' name='taluk' type='radio'>
-                      <label for='ny'>New York</label>
-                    </li>
-                    <li>
-                      <input id='va' name='taluk' type='radio'>
-                      <label for='va'>Vancouver</label>
-                    </li>
-                    <li>
-                      <input id='la' name='taluk' type='radio'>
-                      <label for='la'>Los Angeles</label>
-                    </li>
-                    <li>
-                      <input id='ch' name='taluk' type='radio'>
-                      <label for='ch'>Chicago</label>
-                    </li>
-                    <li>
-                      <input id='se' name='taluk' type='radio'>
-                      <label for='se'>Seattle</label>
-                    </li>
-                    <li>
-                      <input id='san' name='taluk' type='radio'>
-                      <label for='san'>San Francisco</label>
-                    </li>
-                    <li>
-                      <input id='to' name='taluk' type='radio'>
-                      <label for='to'>Toronto</label>
-                    </li>
+<li><input id='Neyyattinkara' name='taluk' value='Neyyattinkara' type='radio'><label for='Neyyattinkara'>Neyyattinkara</label></li>
+<li><input id='Kattakkada' name='taluk' value='Kattakkada' type='radio'><label for='Kattakkada'>Kattakkada</label></li>
+<li><input id='Nedumangadu' name='taluk' value='Nedumangadu' type='radio'><label for='Nedumangadu'>Nedumangadu</label></li>
+<li><input id='Thiruvananthapuram' name='taluk' value='Thiruvananthapuram' type='radio'><label for='Thiruvananthapuram'>Thiruvananthapuram</label></li>
+<li><input id='Chirayinkeezhu' name='taluk' value='Chirayinkeezhu' type='radio'><label for='Chirayinkeezhu'>Chirayinkeezhu</label></li>
+<li><input id='Varkala' name='taluk' value='Varkala' type='radio'><label for='Varkala'>Varkala</label></li>
+<li><input id='Kollam' name='taluk' value='Kollam' type='radio'><label for='Kollam'>Kollam</label></li>
+<li><input id='Kunnathoor' name='taluk' value='Kunnathoor' type='radio'><label for='Kunnathoor'>Kunnathoor</label></li>
+<li><input id='Karunagappally' name='taluk' value='Karunagappally' type='radio'><label for='Karunagappally'>Karunagappally</label></li>
+<li><input id='Kottarakkara' name='taluk' value='Kottarakkara' type='radio'><label for='Kottarakkara'>Kottarakkara</label></li>
+<li><input id='Punalur' name='taluk' value='Punalur' type='radio'><label for='Punalur'>Punalur</label></li>
+<li><input id='Pathanapuram' name='taluk' value='Pathanapuram' type='radio'><label for='Pathanapuram'>Pathanapuram</label></li>
+<li><input id='Adoor' name='taluk' value='Adoor' type='radio'><label for='Adoor'>Adoor</label></li>
+<li><input id='Konni' name='taluk' value='Konni' type='radio'><label for='Konni'>Konni</label></li>
+<li><input id='Kozhencherry' name='taluk' value='Kozhencherry' type='radio'><label for='Kozhencherry'>Kozhencherry</label></li>
+<li><input id='Ranni' name='taluk' value='Ranni' type='radio'><label for='Ranni'>Ranni</label></li>
+<li><input id='Mallappally' name='taluk' value='Mallappally' type='radio'><label for='Mallappally'>Mallappally</label></li>
+<li><input id='Thiruvalla' name='taluk' value='Thiruvalla' type='radio'><label for='Thiruvalla'>Thiruvalla</label></li>
+<li><input id='Chengannur' name='taluk' value='Chengannur' type='radio'><label for='Chengannur'>Chengannur</label></li>
+<li><input id='Mavelikkara' name='taluk' value='Mavelikkara' type='radio'><label for='Mavelikkara'>Mavelikkara</label></li>
+<li><input id='Karthikappally' name='taluk' value='Karthikappally' type='radio'><label for='Karthikappally'>Karthikappally</label></li>
+<li><input id='Kuttanadu' name='taluk' value='Kuttanadu' type='radio'><label for='Kuttanadu'>Kuttanadu</label></li>
+<li><input id='Ambalappuzha' name='taluk' value='Ambalappuzha' type='radio'><label for='Ambalappuzha'>Ambalappuzha</label></li>
+<li><input id='Cherthala' name='taluk' value='Cherthala' type='radio'><label for='Cherthala'>Cherthala</label></li>
+<li><input id='Changanasserry' name='taluk' value='Changanasserry' type='radio'><label for='Changanasserry'>Changanasserry</label></li>
+<li><input id='Kottayam' name='taluk' value='Kottayam' type='radio'><label for='Kottayam'>Kottayam</label></li>
+<li><input id='Vaikkom' name='taluk' value='Vaikkom' type='radio'><label for='Vaikkom'>Vaikkom</label></li>
+<li><input id='Meenachil' name='taluk' value='Meenachil' type='radio'><label for='Meenachil'>Meenachil</label></li>
+<li><input id='Kanjirappally' name='taluk' value='Kanjirappally' type='radio'><label for='Kanjirappally'>Kanjirappally</label></li>
+<li><input id='Peerumedu' name='taluk' value='Peerumedu' type='radio'><label for='Peerumedu'>Peerumedu</label></li>
+<li><input id='Udumbanchola' name='taluk' value='Udumbanchola' type='radio'><label for='Udumbanchola'>Udumbanchola</label></li>
+<li><input id='Idukki' name='taluk' value='Idukki' type='radio'><label for='Idukki'>Idukki</label></li>
+<li><input id='Thodupuzha' name='taluk' value='Thodupuzha' type='radio'><label for='Thodupuzha'>Thodupuzha</label></li>
+<li><input id='Devikulam' name='taluk' value='Devikulam' type='radio'><label for='Devikulam'>Devikulam</label></li>
+<li><input id='Kothamangalam' name='taluk' value='Kothamangalam' type='radio'><label for='Kothamangalam'>Kothamangalam</label></li>
+<li><input id='Kunnathunad' name='taluk' value='Kunnathunad' type='radio'><label for='Kunnathunad'>Kunnathunad</label></li>
+<li><input id='Kanayannur' name='taluk' value='Kanayannur' type='radio'><label for='Kanayannur'>Kanayannur</label></li>
+<li><input id='Kochi' name='taluk' value='Kochi' type='radio'><label for='Kochi'>Kochi</label></li>
+<li><input id='North Paravoor' name='taluk' value='North Paravoor' type='radio'><label for='North Paravoor'>North Paravoor</label></li>
+<li><input id='Aluva' name='taluk' value='Aluva' type='radio'><label for='Aluva'>Aluva</label></li>
+<li><input id='Chalakudy' name='taluk' value='Chalakudy' type='radio'><label for='Chalakudy'>Chalakudy</label></li>
+<li><input id='Mukundapuram' name='taluk' value='Mukundapuram' type='radio'><label for='Mukundapuram'>Mukundapuram</label></li>
+<li><input id='Kodungallur' name='taluk' value='Kodungallur' type='radio'><label for='Kodungallur'>Kodungallur</label></li>
+<li><input id='Thrissur' name='taluk' value='Thrissur' type='radio'><label for='Thrissur'>Thrissur</label></li>
+<li><input id='Chavakkad' name='taluk' value='Chavakkad' type='radio'><label for='Chavakkad'>Chavakkad</label></li>
+<li><input id='Kunnamkulam' name='taluk' value='Kunnamkulam' type='radio'><label for='Kunnamkulam'>Kunnamkulam</label></li>
+<li><input id='Thalapilly' name='taluk' value='Thalapilly' type='radio'><label for='Thalapilly'>Thalapilly</label></li>
+<li><input id='Alathoor' name='taluk' value='Alathoor' type='radio'><label for='Alathoor'>Alathoor</label></li>
+<li><input id='Chittur' name='taluk' value='Chittur' type='radio'><label for='Chittur'>Chittur</label></li>
+<li><input id='Palakkad' name='taluk' value='Palakkad' type='radio'><label for='Palakkad'>Palakkad</label></li>
+<li><input id='Pattambi' name='taluk' value='Pattambi' type='radio'><label for='Pattambi'>Pattambi</label></li>
+<li><input id='Ottappalam' name='taluk' value='Ottappalam' type='radio'><label for='Ottappalam'>Ottappalam</label></li>
+<li><input id='Mannarkkadu' name='taluk' value='Mannarkkadu' type='radio'><label for='Mannarkkadu'>Mannarkkadu</label></li>
+<li><input id='Perinthalmanna' name='taluk' value='Perinthalmanna' type='radio'><label for='Perinthalmanna'>Perinthalmanna</label></li>
+<li><input id='Nilambur' name='taluk' value='Nilambur' type='radio'><label for='Nilambur'>Nilambur</label></li>
+<li><input id='Eranad' name='taluk' value='Eranad' type='radio'><label for='Eranad'>Eranad</label></li>
+<li><input id='Kondotty' name='taluk' value='Kondotty' type='radio'><label for='Kondotty'>Kondotty</label></li>
+<li><input id='Ponnani' name='taluk' value='Ponnani' type='radio'><label for='Ponnani'>Ponnani</label></li>
+<li><input id='Tirur' name='taluk' value='Tirur' type='radio'><label for='Tirur'>Tirur</label></li>
+<li><input id='Thiroorangadi' name='taluk' value='Thiroorangadi' type='radio'><label for='Thiroorangadi'>Thiroorangadi</label></li>
+<li><input id='Kozhikode' name='taluk' value='Kozhikode' type='radio'><label for='Kozhikode'>Kozhikode</label></li>
+<li><input id='Thamarassery' name='taluk' value='Thamarassery' type='radio'><label for='Thamarassery'>Thamarassery</label></li>
+<li><input id='Koyilandy' name='taluk' value='Koyilandy' type='radio'><label for='Koyilandy'>Koyilandy</label></li>
+<li><input id='Vatakara' name='taluk' value='Vatakara' type='radio'><label for='Vatakara'>Vatakara</label></li>
+<li><input id='Vythiri' name='taluk' value='Vythiri' type='radio'><label for='Vythiri'>Vythiri</label></li>
+<li><input id='Sulthan Bathery' name='taluk' value='Sulthan Bathery' type='radio'><label for='Sulthan Bathery'>Sulthan Bathery</label></li>
+<li><input id='Mananthavady' name='taluk' value='Mananthavady' type='radio'><label for='Mananthavady'>Mananthavady</label></li>
+<li><input id='Thalassery' name='taluk' value='Thalassery' type='radio'><label for='Thalassery'>Thalassery</label></li>
+<li><input id='Iritty' name='taluk' value='Iritty' type='radio'><label for='Iritty'>Iritty</label></li>
+<li><input id='Kannur' name='taluk' value='Kannur' type='radio'><label for='Kannur'>Kannur</label></li>
+<li><input id='Payyannur' name='taluk' value='Payyannur' type='radio'><label for='Payyannur'>Payyannur</label></li>
+<li><input id='Taliparamba' name='taluk' value='Taliparamba' type='radio'><label for='Taliparamba'>Taliparamba</label></li>
+<li><input id='Hosdurg' name='taluk' value='Hosdurg' type='radio'><label for='Hosdurg'>Hosdurg</label></li>
+<li><input id='Vellarikundu' name='taluk' value='Vellarikundu' type='radio'><label for='Vellarikundu'>Vellarikundu</label></li>
+<li><input id='Kasaragod' name='taluk' value='Kasaragod' type='radio'><label for='Kasaragod'>Kasaragod</label></li>
+<li><input id='Manjeswaram' name='taluk' value='Manjeswaram' type='radio'><label for='Manjeswaram'>Manjeswaram</label></li>
                   </ul>
                   <p class='title_items filter-btn'>Category</p>
                   <ul style="text-align: initial;">
-                    <li>
-                      <input id='small' name='category' type='radio'>
-                      <label for='small'>100 - 300</label>
-                    </li>
-                    <li>
-                      <input id='medium' name='category' type='radio'>
-                      <label for='medium'>300 - 1000</label>
-                    </li>
-                    <li>
-                      <input id='big' name='category' type='radio'>
-                      <label for='big'>1000 - 3000</label>
-                    </li>
-                    <li>
-                      <input id='bigest' name='category' type='radio'>
-                      <label for='bigest'>more 3000</label>
-                    </li>
+                    <li><input id='Carpentry' name='category' value='Carpentry' type='radio'><label for='Carpentry'>Carpentry</label>                    </li>
+<li><input id='Civil' name='category' value='Civil' type='radio'><label for='Civil'>Civil</label>                    </li>
+<li><input id='Cleaning' name='category' value='Cleaning' type='radio'><label for='Cleaning'>Cleaning</label>                    </li>
+<li><input id='Electrical' name='category' value='Electrical' type='radio'><label for='Electrical'>Electrical</label>                    </li>
+<li><input id='Electronics' name='category' value='Electronics' type='radio'><label for='Electronics'>Electronics</label>                    </li>
+<li><input id='Mechanical' name='category' value='Mechanical' type='radio'><label for='Mechanical'>Mechanical</label>                    </li>
+<li><input id='Others' name='category' value='Others' type='radio'><label for='Others'>Others</label>                    </li>
+<li><input id='Painting' name='category' value='Painting' type='radio'><label for='Painting'>Painting</label>                    </li>
+<li><input id='Transportation' name='category' value='Transportation' type='radio'><label for='Transportation'>Transportation</label>                    </li>
                   </ul>
-                  <p class='title_items filter-btn'>Category</p>
-                  <ul style="text-align: initial;">
-                    <li>
-                      <input id='small' name='subcategory' type='radio'>
-                      <label for='small'>100 - 300</label>
-                    </li>
-                    <li>
-                      <input id='medium' name='subcategory' type='radio'>
-                      <label for='medium'>300 - 1000</label>
-                    </li>
-                    <li>
-                      <input id='big' name='subcategory' type='radio'>
-                      <label for='big'>1000 - 3000</label>
-                    </li>
-                    <li>
-                      <input id='bigest' name='subcategory' type='radio'>
-                      <label for='bigest'>more 3000</label>
-                    </li>
-                  </ul>
+                  
                   <input type="submit" class='title search-btn' value="submit">
               </div>
                 </div>
@@ -986,7 +1047,9 @@
                 <div class="service-list col-xs-12 col-sm-offset-1 col-sm-6">
                 
                 <?php
+                $x = 0;
                 foreach($service as $service_item) {
+                    $x += 1;
                 echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="header bg-cyan">
@@ -1012,7 +1075,7 @@
                                     <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon">
                                             <i class="material-icons">location_on</i>
-                                            <span class="icon-name"><?php //echo $location; ?></span>
+                                            <span class="icon-name">'.$service_item['district'].'</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-3" id="location">
@@ -1024,23 +1087,23 @@
                                     <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon">
                                             <i class="material-icons">group</i>
-                                            <span class="icon-name"><?php //echo $applicants; ?></span>
+                                            <span class="icon-name">'.$service_item['service_count'].'</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon">
                                             <i class="material-icons">access_time</i>
-                                            <span class="icon-name">0000-00-00</span>
+                                            <span class="icon-name">'.$service_item['created_on'].'</span>
                                         </div>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <footer class="blockquote">#positions : <?php //echo $positions;?></footer>
+                                    <footer class="blockquote">#Remark<br><br> : '.$service_item['remark'].'</footer>
                                 </blockquote>
                                 <div class="row">
                                     <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                    <button type="button" class="btn bg-blue apply-btn btn-block btn-lg waves-effect m-r-20" data="1">View Details</button>
+                                    <button type="button" class="btn bg-blue apply-btn btn-block btn-lg waves-effect m-r-20" data="1">'.$service_item['phone'].'</button>
                                     <!-- <button type="button" class="btn bg-blue btn-lg waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Apply Now</button> -->
                                 </div>
                                 </div>
@@ -1048,7 +1111,11 @@
                                 
                             </div>
                         </div>
-                    </div>';}?>
+                    </div>';}
+                    echo $x;
+                    if ($x == 0) {
+                        echo "No Results";
+                    }?>
                 </div>
                 
             </div>

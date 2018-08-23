@@ -68,8 +68,9 @@
                         </div>
                     </div>
                     <div class="form-group">
+                       
                         <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
-                        <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
+                        <label for="terms">I read and agree to the <p class="m-r-20" data-toggle="modal" data-target="#largeModal">Terms of Usage</p></label>
                     </div>
 
                     <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
@@ -82,6 +83,32 @@
         </div>
     </div>
 
+    <!-- Large Size -->
+            <div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="largeModalLabel">Terms and Conditions</h4>
+                        </div>
+                        <div class="modal-body">
+                            As a condition of use you promise not use the Services for any purpose that is unlawful or prohibited by these terms, or any other purpose not reasonably intended by. By way of example ,and not as a limitation ,you agree not to use the services:
+                            <br><br><ul>
+                                <li>To abuse, harass, threaten, impersonate ,intermediate any person. </li>
+                                <li>To post or transmit or cause to be posted or transmitted any content that is libelous, defamatory, obscene, abusive, offensive profile of that infringes any copyright or are the right of any person. </li>
+                                <li>To post or transmit or cause to be posted or transmitted in communication or solicitation designed or intended to obtain password account or private information from any user. </li>
+                                <li>To create or transmit unwanted spam to any person. </li>
+                                <li>To provide inaccurate information within your knowledge. </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Large Size -->
+            
     <!-- Jquery Core Js -->
     <script src="<?php echo base_url(); ?>assets/formbsb/plugins/jquery/jquery.min.js"></script>
 
@@ -97,6 +124,11 @@
     <!-- Custom Js -->
     <script src="<?php echo base_url(); ?>assets/formbsb/js/admin.js"></script>
     <script src="<?php echo base_url(); ?>assets/formbsb/js/pages/examples/sign-up.js"></script>
+    <script src="<?php echo base_url(); ?>assets/formbsb/js/pages/ui/modals.js"></script>
+
+
+
+   
 </body>
 
 </html>

@@ -28,6 +28,8 @@ class Main extends CI_Controller {
 	// --------------------------------------------------------------------------------------
 
 	public function signup() {	
+		// echo $this->session->userdata('user_id');
+		// return;
 		// if no input
 		if (empty($_POST)) {
 			$this->load->view('general/signup');
@@ -125,6 +127,8 @@ class Main extends CI_Controller {
 				// log to logs
 				// log to logs
 				echo "Log In Error";
+				$a['login'] = "failed";
+				$this->session->set_userdata($a);
 				redirect('login', 'location');
 			}
 		}
@@ -170,9 +174,15 @@ class Main extends CI_Controller {
 
 	// ==============================================================================
 	public function offer_service()
-	{
+	{	
+		if ($this->session->userdata('user_id')) {
+			$this->load->view('general/offer_service');
+			return;
+		}
+		redirect('login', 'location');
+
 		// $this->load->view('panel/templates/header');
-		$this->load->view('general/offer_service');
+		
 		// $this->load->view('panel/templates/footer');
 		// $this->load->view('panel/templates/footer-general');
 	}
@@ -192,10 +202,10 @@ class Main extends CI_Controller {
 			return;
 		}
 
-		$input['district'] = $_POST['district'];
-		$input['taluk'] = $_POST['taluk'];
-		$input['category'] = $_POST['category'];
-		$input['subcategory'] = $_POST['subcategory'];
+		$input['district'] = isset($_POST['district']) ? $_POST['district'] : NULL;
+		$input['taluk'] = isset($_POST['taluk']) ? $_POST['taluk'] : NULL;
+		$input['category'] = isset($_POST['category']) ? $_POST['category'] : NULL;
+		$input['subcategory'] = isset($_POST['subcategory']) ? $_POST['subcategory'] : NULL;
 
 		$data['service'] = $this->service->get_services($input);
 		$this->load->view('general/request_service', $data);
@@ -205,18 +215,18 @@ class Main extends CI_Controller {
 
 	public function add_sp() {	
 
-		$data['id'] = $this->session->userdata('user_id');
-		$data['company'] = $_POST['company'];
-		$data['name'] = $_POST['fname'].' '.$_POST['lname'];
-		$data['phone'] = $_POST['mobnum'];
-		$data['district'] = $_POST['district'];
-		$data['address'] = $_POST['permaddr'];
+		$dat['id'] = $this->session->userdata('user_id');
+		$dat['company'] = $_POST['company'];
+		$dat['name'] = $_POST['fname'].' '.$_POST['lname'];
+		$dat['phone'] = $_POST['mobnum'];
+		$dat['district'] = $_POST['owndistrict'];
+		$dat['address'] = $_POST['permaddr'];
 
-		$data['created_on'] = date("Y-m-d");
-		$data['updated_on'] = date("Y-m-d");
-		$data['service_count'] = 0;
+		$dat['created_on'] = date("Y-m-d");
+		$dat['updated_on'] = date("Y-m-d");
+		$dat['service_count'] = 0;
 
-		if ($this->service->add_sp($data)) {
+		if ($this->service->add_sp($dat)) {
 			return True;
 		}
 		else {
@@ -225,11 +235,24 @@ class Main extends CI_Controller {
 	}
 
 	public function add_service() {	
+		$dat['id'] = $this->session->userdata('user_id');
+		$dat['company'] = $_POST['company'];
+		$dat['name'] = $_POST['fname'].' '.$_POST['lname'];
+		$dat['phone'] = $_POST['mobnum'];
+		$dat['district'] = $_POST['owndistrict'];
+		$dat['address'] = $_POST['permaddr'];
+		$dat['created_on'] = date("Y-m-d");
+		$dat['updated_on'] = date("Y-m-d");
+		$dat['service_count'] = 0;
 
+		$data['company'] = $_POST['company'];
+		$data['remark'] = $_POST['remarks'];
+		$data['phone'] = $_POST['mobnum'];
+		$data['created_on'] = date("Y-m-d");
 		$data['district'] = $_POST['district'];
 		$data['taluk'] = $_POST['taluk'];
 		$data['category'] = $_POST['category'];
-		$data['subcategory'] = $_POST['subcategory'];
+		// $data['subcategory'] = $_POST['subcategory'];
 		$data['sp_id'] = $this->session->userdata('user_id');
 		// echo $this->session->userdata('user_id');
 		// var_dump($_POST);
