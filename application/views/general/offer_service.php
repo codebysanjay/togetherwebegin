@@ -92,7 +92,7 @@
                         <li><a href="index">Home</a></li>
                         <li class="active"><a href="services">Services</a></li>
                         <li><a href="contact">Contact Us</a></li>
-                        <li><a href="statistics">Statistics</a></li>
+                        <li class=""hidden"><a href="statistics">Statistics</a></li>
                         <li><?php 
                       if (is_null($this->session->userdata('user_id'))) { 
                         echo '<a href="'.base_url().'login">Login</a>';
@@ -120,7 +120,7 @@
                     <li>
                       <a href="contact">Contact Us</a>
                     </li>
-                    <li>
+                    <li class=""hidden">
                       <a href="statistics">Statistics</a>
                     </li>
                     <li>
@@ -893,7 +893,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>Offer a Service | Spread Smile :)</h2>
-                            <ul class="header-dropdown m-r--5">
+                            <ul class=" hidden header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
@@ -1318,6 +1318,10 @@
         //         $(this).popover('show');
         //     }
         // });
+        
+         $('.confirm').on('click', function() {
+             window.location="<?php echo base_url(); ?>home";
+         });
 
         var kerala = [];
         kerala["Thiruvananthapuram"] = ["Neyyattinkara", "Kattakkada", "Nedumangadu", "Thiruvananthapuram", "Chirayinkeezhu", "Varkala"];
