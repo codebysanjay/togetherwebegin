@@ -55,13 +55,29 @@ class Service extends CI_Model {
         }
     }
 
-    // public function find_district($tk) {
-    //     if ($this->db->insert('service_providers',$data)) {
-    //         return True;
-    //     } else {
-    //         return False;
-    //     }
-    // }
+     public function find_district($tk) {
+        $kerala = array();
+        $kerala["Thiruvananthapuram"] = ["Neyyattinkara", "Kattakkada", "Nedumangadu", "Thiruvananthapuram", "Chirayinkeezhu", "Varkala"];
+        $kerala["Kollam"] = ["Kollam", "Kunnathoor", "Karunagappally", "Kottarakkara", "Punalur", "Pathanapuram"];
+        $kerala["Pathanamthitta"] = ["Adoor", "Konni", "Kozhencherry", "Ranni", "Mallappally", "Thiruvalla"];
+        $kerala["Alappuzha"] = ["Chenganoor", "Mavelikkara", "Karthikappally", "Kuttanad", "Ambalappuzha", "Cherthala"];
+        $kerala["Kottayam"] = ["Changanasserry", "Kottayam", "Vaikom", "Meenachil", "Kanjirappally"];
+        $kerala["Idukki"] = ["Peermade", "Udumbanchola", "Idukki", "Thodupuzha", "Devikulam"];
+        $kerala["Ernakulam"] = ["Kothamangalam", "Muvattupuzha", "Kunnathunad", "Kanayannur", "Kochi", "North Paravur", "Aluva"];
+        $kerala["Thrissur"] = ["Chalakudy", "Mukundapuram", "Kodungallur", "Thrissur", "Chavakkad", "Kunnamkulam", "Thalapilly"];
+        $kerala["Palakkad"] = ["Alathoor", "Chittur", "Palakkad", "Pattambi", "Ottappalam", "Mannarkkad"];
+        $kerala["Malappuram"] = ["Perinthalmanna", "Nilambur", "Eranad", "Kondotty", "Ponnani", "Tirur", "Thiroorangadi"];
+        $kerala["Kozhikode"] = ["Kozhikode", "Thamarassery", "Koyilandy", "Vatakara"];
+        $kerala["Wayanad"] = ["Vythiri", "Sulthan Bathery", "Mananthavady"];
+        $kerala["Kannur"] = ["Thalassery", "Iritty", "Kannur", "Taliparamba", "Payyannur"];
+        $kerala["Kasaragod"] = ["Hosdurg", "Vellarikundu", "Kasaragod", "Manjeswaram"];
+
+        foreach ($kerala as $z => $y) {
+            if (in_array($tk, $y)) {
+		return $z;
+	}
+}
+}
 
     public function add_service($data) {
         // var_dump($data);
@@ -72,18 +88,21 @@ class Service extends CI_Model {
 
         foreach ($taluk as $tk) {
             $entry['sp_id'] = $this->session->userdata('user_id');
-            // $entry['subcategory'] = $sc;
+            $entry['name'] = $data['name'];
             $entry['category'] = $data['category'];
             $entry['taluk'] = $tk;
             $entry['phone'] = $data['phone'];
             $entry['created_on'] = $data['created_on'];
             $entry['company'] = $data['company'];
             $entry['remark'] = $data['remark'];
-            // $entry['district'] = $this->find_district($tk);
-
+            $entry['district'] = $this->find_district($tk);
+//            var_dump($entry);
+             
             $this->db->insert('services',$entry);
+//            $this->db->_compile_select(); 
+//            echo $this->db->last_query();
         }
-    return True;
+//    return True;
     }
         
 }

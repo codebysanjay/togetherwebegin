@@ -75,6 +75,8 @@ $route['offer_service'] = 'main/offer_service';
 $route['add_sp'] = 'main/add_sp';
 $route['add_service'] = 'main/add_service';
 
+$route['contact'] = 'main/contact';
+
 // $route['jobs/(:any)'] = 'main/jobs/$1';
 
 

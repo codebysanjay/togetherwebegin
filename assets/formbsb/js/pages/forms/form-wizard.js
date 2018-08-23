@@ -105,14 +105,15 @@ function add_sp() {
 	});
 }
 function add_service() {
-	// add_sp(),
+	 add_sp(),
 	$.ajax({
 	    type: "POST",
 	    url: "add_service",
-	    data: $('.service').serialize() + ' ' + $('.organization').serialize(),
+	    data: $('.service, .organization').serialize(),
 	    success: function(response)
 	    {
 	        // alert("success in");
+//                window.location="/home";
 	    },
 	    error: function(){
 	        // alert("failed in");
