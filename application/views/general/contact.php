@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,24 +9,24 @@
   <meta name="author" content="Sreenath B S" />
 
   <!-- css -->
-  <link href="http://35.232.137.131/assets/home/css/bootstrap.css" rel="stylesheet" />
-  <link href="http://35.232.137.131/assets/home/css/bootstrap-responsive.css" rel="stylesheet" />
-  <link href="http://35.232.137.131/assets/home/css/prettyPhoto.css" rel="stylesheet" />
+  <link href="<?php echo base_url(); ?>assets/home/css/bootstrap.css" rel="stylesheet" />
+  <link href="<?php echo base_url(); ?>assets/home/css/bootstrap-responsive.css" rel="stylesheet" />
+  <link href="<?php echo base_url(); ?>assets/home/css/prettyPhoto.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <link href="http://35.232.137.131/assets/home/css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/home/css/style.css" rel="stylesheet">
 
   <!-- Theme skin -->
-  <link id="t-colors" href="http://35.232.137.131/assets/home/color/default.css" rel="stylesheet" />
+  <link id="t-colors" href="<?php echo base_url(); ?>assets/home/color/default.css" rel="stylesheet" />
 
   <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://35.232.137.131/assets/home/ico/apple-touch-icon-144-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://35.232.137.131/assets/home/ico/apple-touch-icon-114-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://35.232.137.131/assets/home/ico/apple-touch-icon-72-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" href="http://35.232.137.131/assets/home/ico/apple-touch-icon-57-precomposed.png" />
-  <link rel="shortcut icon" href="http://35.232.137.131/assets/home/ico/favicon.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="<?php echo base_url(); ?>assets/home/ico/apple-touch-icon-57-precomposed.png" />
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/home/ico/favicon.png" />
 
 
-<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/9BCCA033-476C-074D-8D23-6689772D0202/main.js" charset="UTF-8"></script></head>
+</head>
 
 <body>
   <div id="wrapper">
@@ -38,7 +36,7 @@
         <div class="row nomargin">
           <div class="span4">
             <div class="logo">
-                <img src="http://35.232.137.131/assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span>
+                <a href="<?php echo base_url(); ?>home"><img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top"><span class="logo-text">together we begin</span></a>
             </div>
           </div>
           <div class="span8">
@@ -47,19 +45,25 @@
                 <nav>
                   <ul class="nav topnav">
                     <li class="active">
-                      <a href="http://35.232.137.131/home">Home</a>
+                      <a href="<?php echo base_url(); ?>home">Home</a>
                     </li>
                     <li>
-                      <a href="http://35.232.137.131/services">Services</a>
+                      <a href="<?php echo base_url(); ?>services">Services</a>
                     </li>
                     <li>
-                      <a href="http://35.232.137.131/contact">Contact Us</a>
+                      <a href="<?php echo base_url(); ?>contact">Contact Us</a>
+                    </li>
+                    <li class="hidden">
+                      <a href="<?php echo base_url(); ?>statistics">Statistics</a>
                     </li>
                     <li>
-                      <a href="http://35.232.137.131/statistics">Statistics</a>
-                    </li>
-                    <li>
-                      <a href="http://35.232.137.131/login">Login</a>
+                      <?php 
+                      if (is_null($this->session->userdata('user_id'))) { 
+                        echo '<a href="'.base_url().'login">Login</a>';
+                      } else {
+                        echo '<a href="'.base_url().'logout">Logout</a>';
+                      }
+                      ?>
                     </li>
                   </ul>
                 </nav>
@@ -93,16 +97,16 @@
   <!-- javascript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="http://35.232.137.131/assets/home/js/jquery.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/jquery.easing.1.3.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/bootstrap.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/modernizr.custom.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/toucheffects.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/google-code-prettify/prettify.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/jquery.prettyPhoto.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/portfolio/jquery.quicksand.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/portfolio/setting.js"></script>
-  <script src="http://35.232.137.131/assets/home/js/animate.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/jquery.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/jquery.easing.1.3.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/bootstrap.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/modernizr.custom.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/toucheffects.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/google-code-prettify/prettify.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/jquery.prettyPhoto.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/portfolio/jquery.quicksand.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/portfolio/setting.js"></script>
+  <script src="<?php echo base_url(); ?>assets/home/js/animate.js"></script>
 
   <!-- Template Custom JavaScript File -->
   <!-- <script src="js/custom.js"></script> -->

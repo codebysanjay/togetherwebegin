@@ -92,7 +92,7 @@
                         <li><a href="index">Home</a></li>
                         <li class="active"><a href="services">Services</a></li>
                         <li><a href="contact">Contact Us</a></li>
-                        <li class=""hidden"><a href="statistics">Statistics</a></li>
+                        <li class="hidden"><a href="statistics">Statistics</a></li>
                         <li><?php 
                       if (is_null($this->session->userdata('user_id'))) { 
                         echo '<a href="'.base_url().'login">Login</a>';
@@ -1106,7 +1106,7 @@
                                                             <option>Tirur</option>
                                                             <option>Thiroorangadi</option>
                                                         </optgroup>
-                                                        <optgroup class="kozhikkode<" label="Kozhikkode<">
+                                                        <optgroup class="kozhikkode" label="Kozhikkode">
                                                             <option disabled style="background: #5cb85c; color: #fff;">Kozhikkode</option>
                                                             <option>Kozhikode</option>
                                                             <option>Thamarassery</option>

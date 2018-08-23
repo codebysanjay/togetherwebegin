@@ -53,7 +53,7 @@
                     <li>
                       <a href="<?php echo base_url(); ?>contact">Contact Us</a>
                     </li>
-                    <li>
+                    <li class="hidden">
                       <a href="<?php echo base_url(); ?>statistics">Statistics</a>
                     </li>
                     <li>
