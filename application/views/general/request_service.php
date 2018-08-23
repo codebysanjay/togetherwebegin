@@ -90,7 +90,7 @@
                         <li><a href="index">Home</a></li>
                         <li class="active"><a href="services">Services</a></li>
                         <li><a href="contact">Contact Us</a></li>
-                        <li><a href="statistics">Statistics</a></li>
+                        <li class="hidden"><a href="statistics">Statistics</a></li>
                         <li><?php 
                       if (is_null($this->session->userdata('user_id'))) { 
                         echo '<a href="'.base_url().'login">Login</a>';
@@ -118,7 +118,7 @@
                     <li>
                       <a href="contact">Contact Us</a>
                     </li>
-                    <li>
+                    <li class=""hidden">
                       <a href="statistics">Statistics</a>
                     </li>
                     <li>
@@ -919,32 +919,32 @@
                       <label for='illustration'>Ernakulam</label>
                     </li>
                     <li>
-                      <input id='all' name='district' value='Thrissur' type='radio'>
-                      <label for='all'>Thrissur</label>
+                      <input id='thrissur' name='district' value='Thrissur' type='radio'>
+                      <label for='thrissur'>Thrissur</label>
                     </li>
                     <li>
-                      <input id='website' name='district' value='Palakkad' type='radio'>
-                      <label for='website'>Palakkad</label>
+                      <input id='palakkad' name='district' value='Palakkad' type='radio'>
+                      <label for='palakkad'>Palakkad</label>
                     </li>
                     <li>
-                      <input id='icon' name='district' value='Malappuram' type='radio'>
-                      <label for='icon'>Malappuram</label>
+                      <input id='malappuram' name='district' value='Malappuram' type='radio'>
+                      <label for='malappuram'>Malappuram</label>
                     </li>
                     <li>
-                      <input id='mobile' name='district' value='Kozhikode' type='radio'>
-                      <label for='mobile'>Kozhikode</label>
+                      <input id='mobil' name='district' value='Kozhikode' type='radio'>
+                      <label for='mobil'>Kozhikode</label>
                     </li>
                     <li>
-                      <input id='logo' name='district' value='Wayanad' type='radio'>
-                      <label for='logo'>Wayanad</label>
+                      <input id='log' name='district' value='Wayanad' type='radio'>
+                      <label for='log'>Wayanad</label>
                     </li>
                     <li>
-                      <input id='ui' name='district' value='Kannur' type='radio'>
-                      <label for='ui'>Kannur</label>
+                      <input id='uio' name='district' value='Kannur' type='radio'>
+                      <label for='uio'>Kannur</label>
                     </li>
                     <li>
-                      <input id='illustration' name='district' value='Kasargod' type='radio'>
-                      <label for='illustration'>Kasargod</label>
+                      <input id='illus' name='district' value='Kasargod' type='radio'>
+                      <label for='illus'>Kasargod</label>
                     </li>
                   </ul>
                   <p class='title_items filter-btn'>Taluk</p>
@@ -1054,9 +1054,9 @@
                         <div class="card">
                             <div class="header bg-cyan">
                                 <h2>
-                                    '.$service_item['name'].'<small>'.$service_item['company'].'</small>
+                                    '.$service_item['category'].'<small>'.$service_item['company'].'</small>
                                 </h2>
-                                <ul class="header-dropdown m-r--5">
+                                <ul class="hidden header-dropdown m-r--5">
                                     <li class="dropdown">
                                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                             <i class="material-icons">more_vert</i>
@@ -1075,7 +1075,7 @@
                                     <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon">
                                             <i class="material-icons">location_on</i>
-                                            <span class="icon-name">'.$service_item['district'].'</span>
+                                            <span class="icon-name">'.$service_item['taluk'].'</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-3" id="location">
