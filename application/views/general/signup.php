@@ -22,25 +22,85 @@
     <link href="<?php echo base_url(); ?>assets/formbsb/plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="<?php echo base_url(); ?>assets/formbsb/css/style1.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/formbsb/css/style1.css?<?php echo time(); ?>" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/home/css/style.css?<?php echo time(); ?>" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/home/css/navbar.css?<?php echo time(); ?>" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/home/css/footer.css?<?php echo time(); ?>" rel="stylesheet">
+  
+  <style>
+  @media (min-width: 768px) {
+  .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
+      margin-top: 5px !important;
+  }
+  .nav.navbar-nav.navbar-right {
+    padding-top: 10px !important;
+  }
+}
+</style>
+
 </head>
 
-<body class="signup-page">
+<body>
+    
+<div class="wrapper">
+  <header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="http://compassionatekeralam.org/" style="outline: none;"><img src="<?php echo base_url(); ?>assets/ck_logo.png" class="hidden-sm hidden-md hidden-lg kc-logo" style="margin-left: 12%;margin-top: 2%;width: 40%;"></a>
+          <a href="<?php echo base_url(); ?>home">
+            <div class="logo">
+              <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top">
+              <span class="hidden-xs logo-text">together we begin</span>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="index">Home</a></li>
+            <li><a href="services">Services</a></li>
+            <li><a href="contact">Contact Us</a></li>
+            <li class="hidden"><a href="statistics">Statistics</a></li>
+            <li>
+              <?php 
+              if (is_null($this->session->userdata('user_id'))) { 
+              echo '<a href="'.base_url().'login">Login</a>';
+              } else {
+              echo '<a href="'.base_url().'logout">Logout</a>';
+              }
+              ?>
+            </li>
+          </ul>
+          <a href="http://compassionatekeralam.org/" style="outline: none;"><img src="<?php echo base_url(); ?>assets/ck_logo.png" class="visible-lg" style="margin-left: 38%;margin-top: 0%;width: 18%;"></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<div class="gen-sign">
+<div class="signup-page">
     <div class="signup-box">
         <div class="logo">
-            <a href="javascript:void(0);">together <b>we</b> begin !</a>
-            <small>Rise together</small>
+            <a href="home" style="font-size: 26px;">Together <b>we</b> begin !</a>
+            <a href="home" style="font-size: 26px;">നമുക്കൊരുമിച്ചു തുടങ്ങാം !</a>
+            <!--<small>Rise together</small>-->
         </div>
         <div class="card">
             <div class="body">
                 <form id="sign_up" method="POST">
-                    <div class="msg">Register a new membership</div>
+                    <div class="msg">രജിസ്റ്റർ ചെയ്യുക</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Name Surname" required autofocus>
+                            <input type="text" class="form-control" name="username" placeholder="Name / പേര്" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -48,7 +108,7 @@
                             <i class="material-icons">email</i>
                         </span>
                         <div class="form-line">
-                            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                            <input type="email" class="form-control" name="email" placeholder="Email / ഇ-മെയിൽ" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -56,7 +116,7 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password / പാസ്സ്‌വേർഡ്" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -64,16 +124,16 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
+                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Password / പാസ്സ്‌വേർഡ്" required>
                         </div>
                     </div>
                     <div class="form-group">
                        
                         <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
-                        <label for="terms">I read and agree to the <p class="m-r-20" data-toggle="modal" data-target="#largeModal">Terms of Usage</p></label>
+                        <label for="terms">ഞാൻ <span  data-toggle="modal" data-target="#largeModal">ഉപയോഗ നിബന്ധനകൾ</span> അംഗീകരിക്കുന്നു</label>
                     </div>
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Register / രജിസ്റ്റർ ചെയ്യൂ</button>
 
                     <div class="m-t-25 m-b--5 align-center">
                         <a href="signin">You already have a membership?</a>
@@ -82,6 +142,16 @@
             </div>
         </div>
     </div>
+    </div>
+</div>
+
+<div class="container-fluid footer-content">
+  <div>
+      <p><span>Affiliated with</span><!-- <i class="fa fa-heart"></i> --></p>
+      <p><span><a href="http://compassionatekeralam.org/" style="outline: none;"><img src="<?php echo base_url(); ?>assets/ck_logo.png" class="logo-kc"></a></span></p>
+      <a class="hidden" href="home">Compassionate Kerala</a>
+  </div>
+</div>
 
     <!-- Large Size -->
             <div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
@@ -125,6 +195,8 @@
     <script src="<?php echo base_url(); ?>assets/formbsb/js/admin.js"></script>
     <script src="<?php echo base_url(); ?>assets/formbsb/js/pages/examples/sign-up.js"></script>
     <script src="<?php echo base_url(); ?>assets/formbsb/js/pages/ui/modals.js"></script>
+    
+    
 
 
 

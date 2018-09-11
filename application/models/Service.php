@@ -9,42 +9,56 @@ class Service extends CI_Model {
          $this->load->library('session');
     }
 
-    public function get_services($entity = NULL) {
-        if ($entity == NULL) {
-            $sql = "SELECT * FROM `services`";
-            // echo $sql;
-            $query = $this->db->query($sql);
-            return $query->result_array();
-        }
+    public function get_service_count($entity) {
+        // var_dump($entity);
+        $this->db->select('*');
+        $this->db->from('services');
+        $this->db->where($entity);
+        $this->db->group_by('name, category, district');
+        // $this->db->_compile_select();
+        // echo $this->db->get_compiled_select(); // before $this->db->get();
+        $query = $this->db->get();
+        // echo $this->db->last_query();
+        return $query->num_rows();
+    }
 
-        if ($entity['district'] != NULL && $entity['taluk'] != NULL && $entity['category'] != NULL) {
-            $sql = "SELECT * FROM `services`WHERE `services`.district='".$entity['district']."' AND `services`.taluk='".$entity['taluk']."' AND category='".$entity['category']."'";
-        } elseif ($entity['district'] != NULL && $entity['taluk'] != NULL && $entity['category'] == NULL) {
-           $sql = "SELECT * FROM `services`WHERE `services`.district='".$entity['district']."' AND `services`.taluk='".$entity['taluk']."'";
-        }
-        elseif ($entity['district'] != NULL && $entity['taluk'] == NULL && $entity['category'] != NULL) {
-           $sql = "SELECT * FROM `services`WHERE `services`.district='".$entity['district']."' AND category='".$entity['category']."'";
-        }
-        elseif ($entity['district'] == NULL && $entity['taluk'] != NULL && $entity['category'] != NULL) {
-           $sql = "SELECT * FROM `services`WHERE category='".$entity['category']."' AND `services`.taluk='".$entity['taluk']."'";
-        }
-        elseif ($entity['district'] == NULL && $entity['taluk'] == NULL && $entity['category'] != NULL) {
-           $sql = "SELECT * FROM `services`WHERE category='".$entity['category']."'";
-        }
-        elseif ($entity['district'] == NULL && $entity['taluk'] != NULL && $entity['category'] == NULL) {
-           $sql = "SELECT * FROM `services`WHERE `services`.taluk='".$entity['taluk']."'";
-        }
-        elseif ($entity['district'] != NULL && $entity['taluk'] == NULL && $entity['category'] == NULL) {
-           $sql = "SELECT * FROM `services`WHERE `services`.district='".$entity['district']."'";
-        }
-        
+    public function get_services($offset, $limit, $entity = NULL) {
+        // var_dump($entity);
+        $this->db->select('*, SUM(service_count) as s_count');
+        $this->db->from('services');
+        $this->db->where($entity);
+        $this->db->group_by('name, category, district');
+        $this->db->limit($limit, $offset);
+        $query = $this->db->get();
+        // echo $this->db->last_query();
+        return $query->result_array();
+    }
+    
+    public function get_admin_services() {
+        $sql = "SELECT * FROM `services` WHERE sp_id NOT IN (1,2,3,4,7,11)";
         // echo $sql;
-            // "."$entity['district']"."' AND `services`.taluk='"."$entity['taluk']"."' AND category='"."$entity['category']"."' AND subcategory='"."$entity['subcategory']"
-            $query = $this->db->query($sql);
-            return $query->result_array();
-        
-
-        
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    
+    public function verify($idnum) {
+        $data['verified'] = 1;
+        $this->db->where('id', $idnum);
+        $this->db->update('services', $data);
+        return true;
+    }
+    public function unverify($idnum) {
+        $data['verified'] = 0;
+        $this->db->where('id', $idnum);
+        $this->db->update('services', $data);
+        return true;
+    }
+    
+    public function service_count_update($idnum) {
+        $this->db->where('id', $idnum);
+        $this->db->set('service_count', 'service_count+1', FALSE);
+        $this->db->update('services');
+        return true;
     }
 
     public function add_sp($data) {
@@ -96,6 +110,7 @@ class Service extends CI_Model {
             $entry['company'] = $data['company'];
             $entry['remark'] = $data['remark'];
             $entry['district'] = $this->find_district($tk);
+            $entry['taluk_list'] = implode(",", $data['taluk']);
 //            var_dump($entry);
              
             $this->db->insert('services',$entry);

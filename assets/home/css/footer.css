@@ -1,0 +1,153 @@
+.footer-content {
+  background-color:#414042;
+  /*padding-top: 10px;*/
+  padding: 0px;
+}
+/*background-color: black;*/
+.footer-content div {
+  padding-top: 10px;
+  /*padding-bottom: 9px;*/
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-content div i:hover {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.footer-content div a {
+  color: wheat;
+  font-weight: bold;
+}
+
+.footer-content div a:hover {
+  text-decoration: none;
+  font-size: 15px;
+}
+.footer-content div i:hover {
+  font-size: 20px;
+  cursor: pointer;
+  color: orange;
+}
+.logo-kc {
+    width: 30%;
+}
+@media (min-width: 400px) {
+  .logo-kc {
+    width: 25% !important;
+    margin-top: -10px;
+  }
+}
+
+@media (min-width: 520px) {
+  .logo-kc {
+    width: 20% !important;
+  }
+}
+@media (min-width: 648px) {
+  .logo-kc {
+    width: 18% !important;
+    margin-top: -5px;
+  }
+}
+@media (min-width: 768px) {
+  .logo-kc {
+    width: 12% !important;
+  }
+}
+
+
+
+@media (min-width: 768px) {
+    .kc-logo {
+    display: none !important;
+}
+
+@media (max-width: 320px) {
+  .kc-logo {
+    margin-left: 12% !important;
+    margin-top: 2% !important;
+    width: 40% !important;
+    display: inline-block !important;
+  }
+}
+@media (min-width: 350px) {
+  .kc-logo {
+    margin-left: 12% !important;
+    margin-top: 1% !important;
+    width: 40% !important;
+    display: inline-block !important;
+  }
+}
+@media (min-width: 370px) {
+  .kc-logo {
+    margin-left: 14% !important;
+    margin-top: 1% !important;
+    width: 40% !important;
+    display: inline-block !important;
+  }
+}
+@media (min-width: 400px) {
+  .kc-logo {
+    margin-left: 15% !important;
+    margin-top: 0% !important;
+    width: 40% !important;
+    display: inline-block !important;
+  }
+  @media (min-width: 480px) {
+  .kc-logo {
+    margin-left: 15% !important;
+    margin-top: -1% !important;
+    width: 40% !important;
+    display: inline-block !important;
+  }
+  @media (min-width: 520px) {
+  .kc-logo {
+    margin-left: 21% !important;
+    margin-top: 0% !important;
+    width: 35% !important;
+    display: inline-block !important;
+  }
+  @media (min-width: 550px) {
+  .kc-logo {
+    margin-left: 21% !important;
+    margin-top: -1% !important;
+    width: 35% !important;
+    display: inline-block !important;
+  }
+  @media (min-width: 620px) {
+  .kc-logo {
+    margin-left: 28% !important;
+    margin-top: 0% !important;
+    width: 28% !important;
+    display: inline-block !important;
+  }
+  @media (min-width: 660px) {
+  .kc-logo {
+    margin-left: 25% !important;
+    margin-top: -1% !important;
+    width: 30% !important;
+    display: inline-block !important;
+  }
+  @media (min-width: 720px) {
+  .kc-logo {
+    margin-left: 28% !important;
+    margin-top: -1% !important;
+    width: 28% !important;
+    display: inline-block !important;
+  }
+  @media (min-width: 768px) {
+  .kc-logo {
+    display: none !important;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .navbar-header a {
+    position: absolute;
+    left: 0;
+  }
+}

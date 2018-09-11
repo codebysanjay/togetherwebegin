@@ -6,7 +6,7 @@
 /* === custom icon === */
 /*@import url('custom-fonts.css');*/
 /* ==== overwrite bootstrap standard ==== */
-/*@import url('overwrite.css');*/
+@import url('overwrite.css');
 
 /*@import url('animate.css');
 @import url('shortcodes.css');*/
@@ -17,9 +17,6 @@
 ==================================== */
 
 /* --- header -- */
-.navbar {
-	margin-bottom: 0 !important;
-}
 
 .navbar-header {
 	position: relative;
@@ -36,19 +33,22 @@
 	width: 60px;
 	margin-top: -15px;
 }
-
+.logo-ck{
+    position:absolute;
+    left: 50%;
+}
 .logo-text {
 	margin-top: 15px;
 	color: yellow;
 	font-size: 16px;
 	position: relative;
 	top: 7px;
-	font-family: oxygen;
 }
 
 header{
+	background: url(../img/header-pattern-150.png) repeat;
 	margin:0;
-	padding: 0 0 0px;
+	padding:20px 0 0px;
 	position:relative;
 	z-index:2000;
 }
@@ -64,8 +64,7 @@ header .top {
 
 
 header .logo {
-	float: left;
-	/*margin-top: 10px;*/
+	float:left;
 }
 
 header .logo img {
@@ -133,8 +132,7 @@ header .navigation {
 
 header ul.nav li {
 	border:none;
-	margin-left: 5px !important;
-	margin-right: 10px !important;
+	margin:0;
 }
 
 header ul.nav li a {
@@ -145,7 +143,6 @@ header ul.nav li a {
 	font-size:13px;
   color: #fdfdfd;
   text-shadow: none;
-  outline: 0 !important;
 }
 
 header ul.nav li a i {
@@ -153,25 +150,17 @@ header ul.nav li a i {
 }
 
 .navbar .nav a:hover {
-    color: yellow !important;
-    transform: scale(1.05);
-    margin-left: 10px;
-    font-weight: bold;
+	background:none;
 }
 
-.navbar .nav > .active > a, .navbar .nav > .active > a:hover {
-    font-weight: 600;
-    padding-bottom: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-	color: yellow !important;
+.navbar .nav > .active > a,.navbar .nav > .active > a:hover {
+	font-weight:600;
 }
 
 .navbar .nav > .active > a:active,.navbar .nav > .active > a:focus {
 	background:none;
 	outline:0;
 	font-weight:600;
-	margin-left: 0 !important;
 }
 
 .navbar .nav li .dropdown-menu {
@@ -209,124 +198,7 @@ header ul.nav li ul li ul {
   content: '';
 }
 
-@media (min-width: 1024px) {
-	#intro {
-		background-attachment: fixed;
-	}
-}
-@media (max-width: 767px) {
-	header .logo {
-		float: left;
-		margin-top: 10px !important;
-	}
-	.intro-content  h2 {
-		font-size: 24px !important;
-	}
-	.intro-content h3 {
-        font-size: 15px;
-	}
-	.footer-bottom {
-		/*margin-top: 50px !important;*/
-	}
-	.ck_logo {
-		width: 25% !important;
-	}
-}
 
-
-@media (min-width: 768px) {
-	.navbar-header {
-	    left: 0 !important;
-	    margin-top: 10px !important;
-	}
-	.nav.navbar-nav.navbar-right {
-	    padding: 15px !important;
-	}
-	.navbar .nav > .active > a, .navbar .nav > .active > a:hover {
-	    padding-top: 10px;
-	    margin-top: 15px !important;
-	    /*margin-left: 0px !important;*/
-	}
-	.navbar .nav a:hover {
-	    /*transform: none !important;*/
-	    /*margin-left: 0px !important;*/
-	}
-	.home-btns {
-		display: flex;
-	}
-	.navbar {
-	    border-radius: 0 !important;
-	}
-	/*.card {
-	    margin-top: -46px !important;
-	}*/
-}
-
-.navbar .nav a:hover {
-	background:none;
-}
-
-.navbar .nav > .active > a,.navbar .nav > .active > a:hover {
-	font-weight:600;
-}
-
-.navbar .nav > .active > a:active,.navbar .nav > .active > a:focus {
-	background:none;
-	outline:0;
-	font-weight:600;
-}
-
-.navbar .nav li .dropdown-menu {
-	z-index:1000;
-}
-.navbar .nav > li > .dropdown-menu:before {
-  display: inline-block;
-  border-right: none;
-  border-bottom: none;
-  border-left: none;
-  border-bottom-color: none;
-  content:none;
-}
-
-.navbar .nav > li > .dropdown-menu:after {
-  display: inline-block;
-  border-right: none;
-  border-bottom: none;
-  border-left: none;
-  content: '';
-}
-header .navigation {
-	float:right;
-}
-
-header ul.nav li {
-	border:none;
-	margin:0;
-}
-
-header ul.nav li a {
-	border:none;
-	font-weight:400;
-}
-.navbar .nav > li > a {
-	font-size:13px;
-  color: #fdfdfd;
-  text-shadow: none;
-}
-
-header ul.nav li a i {
-	color:#fff;
-}
-
-
-
-header ul.nav li ul {
-	z-index:1000;
-	margin-top:20px;
-}
-header ul.nav li ul li ul {
-	margin:1px 0 0 1px;
-}
 ul.nav li.dropdown a {
 	z-index:1000;
 	display:block;
@@ -347,18 +219,17 @@ ul.nav li.dropdown ul li i {
 }
 
 .nav.navbar-nav.navbar-right {
-    /*margin-bottom: 10px !important;*/
-    margin-top: 0 !important;
+    margin-bottom: 10px !important;
 }
 .nav.navbar-nav li {
-    display: block;
+    display: block !important;
 }
 
 
 @media (max-width: 767px) {
 
 	.navbar-header {
-		top: 5px !important;
+		top: 0px !important;
 		left: 0px !important;
 	}
 }

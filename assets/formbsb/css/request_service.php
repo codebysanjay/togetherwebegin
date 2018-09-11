@@ -43,13 +43,6 @@
     <link href="<?php echo base_url(); ?>assets/home/css/footer.css?<?php echo time(); ?>" rel="stylesheet">
     <style>.dropdown-menu.inner {max-height: 35vh !important;}</style>
     <style>
-        form ul {
-            margin-left: -40px;
-            list-style: none;
-        }
-        form ul label {
-            font-size: 103% !important;
-        }
       @media (min-width: 768px) {
       .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
           margin-top: 5px !important;
@@ -62,7 +55,7 @@
     <!--Filter Css-->
     <link href="<?php echo base_url(); ?>assets/formbsb/external/filter/filter.css?<?php echo time(); ?>" rel="stylesheet" />
 
-    
+
 </head>
 
 <body style="overflow-x: hidden;">
@@ -84,45 +77,51 @@
     </div>
     <!-- #END# Page Loader -->
 
-<div class="wrapper">
-  <header>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="http://compassionatekeralam.org/" style="outline: none;"><img src="<?php echo base_url(); ?>assets/ck_logo.png" class="hidden-sm hidden-md hidden-lg kc-logo" style="margin-left: 12%;margin-top: 2%;width: 40%;"></a>
-          <a href="<?php echo base_url(); ?>home">
-            <div class="logo">
-              <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top">
-              <span class="hidden-xs logo-text">together we begin</span>
-            </div>
-          </a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://togetherwebegin.in/index">Home</a></li>
-            <li class="active"><a href="http://togetherwebegin.in/services">Services</a></li>
-            <li><a href="http://togetherwebegin.in/contact">Contact Us</a></li>
-            <li class="hidden"><a href="statistics">Statistics</a></li>
-            <li>
-              <?php 
-              if (is_null($this->session->userdata('user_id'))) { 
-              echo '<a href="'.base_url().'login">Login</a>';
-              } else {
-              echo '<a href="'.base_url().'logout">Logout</a>';
-              }
-              ?>
-            </li>
-          </ul>
-          <a href="http://compassionatekeralam.org/" style="outline: none;"><img src="<?php echo base_url(); ?>assets/ck_logo.png" class="visible-lg" style="margin-left: 38%;margin-top: 0%;width: 18%;"></a>
-        </div>
-      </div>
-    </nav>
-  </header>
+    <div class="wrapper">
+    <!-- start header -->
+    <header>
+<!-- 
+      <div class="container">
+        <div class="row nomargin"> -->
+
+          <nav class="navbar navbar-inverse">
+                  <div class="container-fluid">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a href="<?php echo base_url(); ?>home">
+                        <div class="logo">
+                          <img src="<?php echo base_url(); ?>assets/home/img/together.png" class="logo-top">
+                          <span class="logo-text">together we begin</span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index">Home</a></li>
+                        <li><a href="services">Services</a></li>
+                        <li><a href="contact">Contact Us</a></li>
+                        <li class="hidden"><a href="statistics">Statistics</a></li>
+                        <li><?php 
+                      if (is_null($this->session->userdata('user_id'))) { 
+                        echo '<a href="'.base_url().'login">Login</a>';
+                      } else {
+                        echo '<a href="'.base_url().'logout">Logout</a>';
+                      }
+                      ?></li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+
+          
+<!--         </div>
+      </div> -->
+    </header>
+    <!-- end header -->
 </div>
 
 
@@ -196,7 +195,7 @@
                       <label for='illus'>Kasargod</label>
                     </li>
                   </ul>
-                  <p class='title_items title_taluk filter-btn'>Taluk</p>
+                  <p class='title_items filter-btn'>Taluk</p>
                   <ul style="text-align: initial;">
                     <li><input id='Neyyattinkara' name='taluk' value='Neyyattinkara' type='radio'><label for='Neyyattinkara'>Neyyattinkara</label></li>
                     <li><input id='Kattakkada' name='taluk' value='Kattakkada' type='radio'><label for='Kattakkada'>Kattakkada</label></li>
@@ -277,22 +276,19 @@
                   </ul>
                   <p class='title_items filter-btn'>Category</p>
                   <ul style="text-align: initial;">
-                    <li><input id='Carpentry' name='category' value='Carpentry' type='radio'><label for='Carpentry'>Carpentry / മരപ്പണി</label></li>
-                    <li><input id='Civil' name='category' value='Civil' type='radio'><label for='Civil'>Civil / സിവിൽ</label></li>
-                    <li><input id='Cleaning' name='category' value='Cleaning' type='radio'><label for='Cleaning'>Cleaning / വൃത്തിയാക്കൽ</label></li>
-                    <li><input id='Electrical' name='category' value='Electrical' type='radio'><label for='Electrical'>Electrical / ഇലക്ട്രിക്കൽ</label></li>
-                    <li><input id='Electronics' name='category' value='Electronics' type='radio'><label for='Electronics'>Electronics / ഇലക്ട്രോണിക്സ്</label></li>
-                    <li><input id='Mechanical' name='category' value='Mechanical' type='radio'><label for='Mechanical'>Mechanical / മെക്കാനിക്കൽ</label></li>
-                    <li><input id='Others' name='category' value='Others' type='radio'><label for='Others'>Others / മറ്റുള്ളവ</label></li>
-                    <li><input id='Painting' name='category' value='Painting' type='radio'><label for='Painting'>Painting / പെയിന്റിംഗ്</label></li>
-                    <li><input id='Plumbing' name='category' value='Plumbing' type='radio'><label for='Plumbing'>Plumbing / പ്ലംബിംഗ്</label></li>
-                    <li><input id='Roofing' name='category' value='Roofing' type='radio'><label for='Roofing'>Roofing / റൂഫിംഗ്</label></li>
-                    <li><input id='Transportation' name='category' value='Transportation' type='radio'><label for='Transportation'>Transportation / ഗതാഗതം</label></li>
+                    <li><input id='Carpentry' name='category' value='Carpentry' type='radio'><label for='Carpentry'>Carpentry</label></li>
+                    <li><input id='Civil' name='category' value='Civil' type='radio'><label for='Civil'>Civil</label></li>
+                    <li><input id='Cleaning' name='category' value='Cleaning' type='radio'><label for='Cleaning'>Cleaning</label></li>
+                    <li><input id='Electrical' name='category' value='Electrical' type='radio'><label for='Electrical'>Electrical</label></li>
+                    <li><input id='Electronics' name='category' value='Electronics' type='radio'><label for='Electronics'>Electronics</label></li>
+                    <li><input id='Mechanical' name='category' value='Mechanical' type='radio'><label for='Mechanical'>Mechanical</label></li>
+                    <li><input id='Others' name='category' value='Others' type='radio'><label for='Others'>Others</label></li>
+                    <li><input id='Painting' name='category' value='Painting' type='radio'><label for='Painting'>Painting</label></li>
+                    <li><input id='Transportation' name='category' value='Transportation' type='radio'><label for='Transportation'>Transportation</label></li>
                   </ul>
                   
-                  <input type="submit" class='btn bg-blue btn-block btn-lg waves-effect title search-btn' value="submit">
-
-              </div></form>
+                  <input type="submit" class='title search-btn' value="submit">
+              </div>
                 </div>
             </div>
 
@@ -312,25 +308,25 @@
 
                             <div class="body" style="color: black;">
                                 <div style="color: rgb(51, 122, 183);" class="row">
-                                    <div class="col-xs-6 col-sm-6" id="location">
+                                    <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon" style="display: ruby;">
                                             <i class="material-icons">location_on</i>
-                                            <span class="icon-name">'.$service_item['district'].'</span>
+                                            <span class="icon-name">'.$service_item['taluk'].'</span>
                                         </div>
                                     </div>
-                                    <div class="col-xs-6 col-sm-6" id="location">
+                                    <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon">
                                             <i class="material-icons">monetization_on</i>
                                             <span class="icon-name">Volunteering</span>
                                         </div>
                                     </div>
-                                    <div class="col-xs-6 col-sm-6" id="location">
+                                    <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon">
                                             <i class="material-icons">group</i>
-                                            <span class="icon-name">'.$service_item['s_count'].'</span>
+                                            <span class="icon-name">'.$service_item['service_count'].'</span>
                                         </div>
                                     </div>
-                                    <div class="col-xs-6 col-sm-6" id="location">
+                                    <div class="col-xs-6 col-sm-3" id="location">
                                         <div class="demo-google-material-icon">
                                             <i class="material-icons">access_time</i>
                                             <span class="icon-name">'.$service_item['created_on'].'</span>
@@ -338,14 +334,12 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <footer class="blockquote">#Taluks : '.str_replace(",", ", ", $service_item['taluk_list']).'</footer>
-                                    <br>
-                                    <footer class="blockquote">#Remarks : '.$service_item['remark'].'</footer>
+                                    <footer class="blockquote">#Remark<br><br> : '.$service_item['remark'].'</footer>
                                 </blockquote>
                                 <div class="row">
                                     <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4"></div>
                                     <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                                    <button type="button" class="btn bg-blue apply-btn btn-block btn-lg waves-effect m-r-20" data="'.$service_item["id"].'">'.$service_item['phone'].'</button>
+                                    <button type="button" onclick="service_used('.$service_item["id"].')" class="btn bg-blue apply-btn btn-block btn-lg waves-effect m-r-20" data="1">'.$service_item['phone'].'</button>
                                     <!-- <button type="button"  class="btn bg-blue btn-lg waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Apply Now</button> -->
                                 </div>
                                 </div>
@@ -369,59 +363,16 @@
                     </div>
                 </div>';
                     }?>
-
-                    <?php 
-                    echo '<div class="row">
-                            <nav class="col-xs-12">
-                                <ul class="pager" style="margin-top: -20px; background-color: white;">';
-                    // foreach ($links as $link) {
-                    echo '<li class="next"><a href="'.base_url().'services/'.$link_last.'" class="waves-effect">
-                                        Last <span aria-hidden="true">>></span>
-                                    </a>
-                                </li>
-                                <li class="previous"><a href="'.base_url().'services/1" class="waves-effect">
-                                        <span aria-hidden="true"><<</span> First
-                                    </a>
-                                </li>';
-                    if ($page == 1) {
-                      echo'<li class="disabled previous"><a href="'.base_url().'services/1" class="waves-effect">
-                                        <span aria-hidden="true">←</span> Prev
-                                    </a>
-                                </li>';
-                              }
-                    if ($page == $link_last) {
-                      echo'<li class="disabled next"><a href="'.base_url().'services/'.$link_last.'" class="waves-effect">
-                                        Next <span aria-hidden="true">→</span>
-                                    </a>
-                                </li>';
-                              }
-                              echo $links.'
-                              </ul>
-                            </nav>
-                        </div>';
-                        ?>
-
-
-
-
                 </div>
-
-                <!-- <?php foreach ($links as $link) {
-                  echo "<li>". $link."</li>";
-                } ?> -->
-
-
-
-
-
+                
             </div>
         </div>
     </section>
-<!-- </form></div></div></div></div></section> -->
+
 <div class="container-fluid footer-content">
   <div>
-      <p><span>Affiliated with</span><!-- <i class="fa fa-heart"></i> --></p>
-      <p><span><a href="http://compassionatekeralam.org/" style="outline: none;"><img src="<?php echo base_url(); ?>assets/ck_logo.png" class="logo-kc"></a></span></p>
+      <p><span>Powered by</span><!-- <i class="fa fa-heart"></i> --></p>
+      <p><span><img src="<?php echo base_url(); ?>assets/ck_logo.png" class="logo-kc"></span></p>
       <a class="hidden" href="home">Compassionate Kerala</a>
   </div>
 </div>
@@ -449,13 +400,8 @@
 
     <!-- Filter Js -->
     <script src="<?php echo base_url(); ?>assets/formbsb/external/filter/filter.js"></script>
-
     
     <script>
-        if ($(window).width() > 767) {
-          console.log('sm-up');
-          $('.filter-btns').removeClass('hidden');
-        }
     // js to be applied after document.ready
         // Ajax on verify
          function service_used(idnum) {
@@ -473,15 +419,6 @@
                  },
              });
          }
-         $(document).ready(function(){
-            $(".apply-btn").click(function(){
-                var mob = $(this).text();
-                service_used($(this).attr('data'));
-                if ($(window).width() < 767) {
-                    window.location = "tel:91"+mob;
-                }
-            });
-        });
         </script>
         
 </body>
